@@ -110,7 +110,7 @@
 <body>
 
 <!-- YouTube Video as Background Music -->
-<audio autoplay loop hidden>
+<audio id="bg-music" autoplay loop hidden>
   <source src="https://ia904509.us.archive.org/2/items/elvis-presley-cant-help-falling-in-love-audio_202106/elvis-presley-cant-help-falling-in-love-audio.mp3?cnt=0" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
@@ -122,6 +122,8 @@
 </div>
 
 <div class="container">
+
+
   <div class="title">Happy Birthday Yovi</div>
 
   <div class="subtitle">A Journey Woven with Love</div>
@@ -144,7 +146,9 @@
     <br>
     I love you endlessly.
   </div>
-
+<button id="toggle-music" style="margin-top: 30px; padding: 10px 20px; font-size: 1em; background: #d45d79; color: white; border: none; border-radius: 10px; cursor: pointer;">
+  ⏸ Pause Music
+</button>
   <footer>
     With love, always and forever 💖
   </footer>
@@ -172,6 +176,21 @@
 
   setInterval(createConfetti, 200);
 </script>
+<script>
+  const bgMusic = document.getElementById('bg-music');
+  const toggleBtn = document.getElementById('toggle-music');
+
+  toggleBtn.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      toggleBtn.textContent = '⏸ Pause Music';
+    } else {
+      bgMusic.pause();
+      toggleBtn.textContent = '▶ Play Music';
+    }
+  });
+</script>
+
 
 </body>
 </html>
